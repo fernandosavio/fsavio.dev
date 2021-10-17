@@ -1,0 +1,29 @@
+[[main]]
+identifier = 'categories'
+name = 'Categorias'
+url = '/categories/'
+weight = 10
+
+[[main]]
+identifier = 'tags'
+name = 'Tags'
+url = '/tags/'
+weight = 20
+
+# [[main]]
+# identifier = 'example'
+# name = 'example.org'
+# url = 'https://example.org'
+# weight = 30
+
+[[main]]
+identifier = 'sobre'
+name = 'Sobre mim'
+url = '/sobre-mim/'
+weight = 30
+
+[[main]]
+identifier = 'pesquisa'
+name = 'Pesquisa'
+url = '/pesquisa/'
+weight = 40

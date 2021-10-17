@@ -1,0 +1,16 @@
+baseURL = 'https://fsavio.dev/'
+title = 'fsavio.dev'
+theme = 'PaperMod'
+
+languageCode = 'pt-br'
+defaultContentLanguage = 'pt-br'
+
+enableRobotsTXT = true
+buildDrafts = false
+buildFuture = false
+buildExpired = false
+
+googleAnalytics = false
+
+[outputs]
+home = ['HTML', 'RSS', 'JSON']

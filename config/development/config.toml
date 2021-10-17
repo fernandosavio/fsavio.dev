@@ -1,0 +1,7 @@
+baseURL = 'http://localhost:1313/'
+
+enableRobotsTXT = false
+buildDrafts = true
+buildFuture = true
+buildExpired = false
+
