@@ -2,17 +2,22 @@
 # type: post
 title: "Juro composto aplicado a um exemplo real"
 date: 2017-07-02T05:00:00Z
-# images:
-#   - "/images/featured/digital-marketing.jpg"
+cover:
+    image: "images/digital-marketing.jpg"
+    alt: "Imagem de capa de um table com gráficos."
+    relative: true
 description: "Resolução de um problema proposto na plataforma repl.it que usa a fórmula de juros compostos ao invés de usar loop."
-categories: 
+categories:
+  - programação
+tags:
   - python
+math: true
 ---
 
 
 ## TL;DR
 
-Foi aplicada a fórmula do juro composto (`V_f = V_p(1 + j) ** n`) para resolver o problema sem usar laços de repetições, apenas matemática.
+Foi aplicada a fórmula do juro composto ($V_f = V_p(1 + j) ^ n$) para resolver o problema sem usar laços de repetições, apenas matemática.
 
 Problema:
 
@@ -37,7 +42,7 @@ Novo código:
 from math import log, ceil
 
 v_p, v_f = int(input()), int(input())
-n = log(v_p/v_f, 1.1)
+n = log(v_f/v_p, 1.1)
 
 print(ceil(n) + 1)
 ```
@@ -87,7 +92,7 @@ Para todo o exercício deste curso existe uma resposta modelo, que serve apenas 
 A resposta proposta para este exercício é a seguinte:
 
 
-~~~python
+```python
 x, y = int(input()), int(input())
 num_days = 1
 
@@ -96,7 +101,7 @@ while x < y:
     num_days += 1
 
 print(num_days)
-~~~
+```
 
 Até aí tudo legal, o exercício se propõe a ensinar laço de repetição para o aluno.
 
@@ -122,74 +127,74 @@ Antes de entrar na fórmula vou falar um pouco sobre cálculo percentual, apenas
 
 ## Porcentagens
 
-A própria palavra *porcentagem* vem de *porcento* que significa **por cento** ou **a cada 100** (não me diga!).
+A própria palavra *porcentagem* vem do latim _per centum_ que significa **por cento** ou **a cada 100** (não me diga!).
 O que precisamos lembrar é o que isso significa matematicamente. Por exemplo, `50%`:
 
-~~~python
-50% == 50/100 == 1/2 == 0.5
-~~~
+$$$
+50\\% = \frac{50}{100} = \frac{1}{2} = 0.5
+$$$
 
-Os números acima são equivalentes, quando se faz cálculos com percentual usamos `0.5` (ou frações, dependo da preferência). Então se eu quiser saber quanto é 50% de `x`, é só calcular `x * 0.5`.
+Os números acima são equivalentes, quando se faz cálculos com percentual usamos `0.5` (ou frações, dependo da preferência). Então se eu quiser saber quanto é 50% de `x`, é só calcular $x \times 0.5$.
 
 Também sabemos que:
 
-- qualquer número vezes zero é zero (`x * 0 == 0`);
-- qualquer número vezes 1 é ele mesmo (`x * 1 == x`).
+- qualquer número vezes zero é zero ($x \times 0 = 0$);
+- qualquer número vezes 1 é ele mesmo ($x \times 1 = x$).
 
 Mas podemos enxergar isso de outro jeito, podemos enxergar que o `0` e o `1` são percentuais. Então ficaria:
 
-- 0% de qualquer número é 0 (`x * 0 == 0`);
-- 100% de qualquer número é ele mesmo (`x * 1 == x`).
+- 0% de qualquer número é 0 ($x \times 0 = 0$);
+- 100% de qualquer número é ele mesmo ($x \times 1 = x$).
 
-Pra finalizar essa parte, se quisermos acrescentar 10% a um valor basta multiplicar por `1.1`, ou seja `x * 1.1`.
+Pra finalizar essa parte, se quisermos acrescentar 10% a um valor basta multiplicar por `1.1`, ou seja $x \times 1.1$, pois assim estaríamos pegando o próprio valor (1) mais os 10% dele (0.1).
 
 
 ## Descobrindo a fórmula do juro composto
 
 Precisamos aplicar uma porcentagem em um valor inicial e depois ir aplicando este percentual no resultado do cálculo anterior. De maneira simples e ineficaz:
 
-~~~python
-valor_inicial = 10  # Lembre-se desta linha, vou citá-la adiante
+```python
+valor_inicial = 10  # primeiro dia sem juros aplicados (lembre-se dessa linha)
 valor_futuro = valor_inicial * 1.1  # 1 dia de juros
 valor_futuro = valor_futuro * 1.1  # 2 dia de juros
 valor_futuro = valor_futuro * 1.1  # 3 dia de juros
 ...
 valor_futuro = valor_futuro * 1.1  # N dias de juros
-~~~
+```
 
 Que também pode ser expressa da seguinte maneira:
 
-~~~python
+```python
 valor_inicial = 10
 valor_futuro = (((valor_inicial * 1.1) * 1.1) * 1.1) ... # N vezes
-~~~
+```
 
-Como a multiplicação é uma operação com distributividade, ou seja, o resultado é o mesmo independente da ordem dos operandos (`2 * 3 == 6` e `3 * 2 == 6`), os parênteses do último exemplo são desnecessários.
+Como a multiplicação é uma operação com distributividade, ou seja, o resultado é o mesmo independente da ordem dos operandos ($2 \times 3 = 6 \iff 3 \times 2 = 6$), os parênteses do último exemplo são desnecessários.
 
-~~~python
+```python
 valor_inicial = 10
 valor_futuro = valor_inicial * 1.1 * 1.1 * 1.1 ... # N vezes
-~~~
+```
 
 Agora sim! Um número `x` multiplicado N vezes por ele mesmo é uma exponenciação `x * x * x * ... == x ** n`. Reescrevendo o código:
 
-~~~python
+```python
 valor_inicial = 10
 valor_futuro = valor_inicial * (1.1 ** n)
-~~~
+```
 
 Pronto, chegamos à formula de juros compostos! Na [wikipedia][wiki.juros] a fórmula é mostrada como:
 
-~~~python
-V_f = V_p(1 + j) ** n
-~~~
+$$$
+V_f = V_p(1 + j) ^ n
+$$$
 
 Sendo:
 
-- `V_f`: Valor futuro
-- `V_p`: Valor presente
-- `j`: juro
-- `n`: número de períodos
+- $V_f$: Valor futuro
+- $V_p$: Valor presente
+- $j$: juro
+- $n$: número de períodos
 
 Que é exatamente o que encontramos, pois já calculamos os 10 % de juros como `1.1`.
 
@@ -198,41 +203,50 @@ Que é exatamente o que encontramos, pois já calculamos os 10 % de juros como `
 
 Ao substituir os valores do enunciado na fórmula temos:
 
-~~~python
-30 = 10(1 + 0.1)^n
-~~~
+$$$
+30 = 10(1 + 0.1) ^ n
+$$$
 
 
 Nós já sabemos o valor futuro então precisamos isolar o `n` para podermos aplicar a fórmula:
 
-~~~python
-V_f = V_p(1 + j) ** n
-V_f / V_p = j ** n
-j ** n = V_f / V_p
-~~~
+{{< safe_html >}}
+$$$
+\begin{align}
+  V_f &= V_p(1 + j) ^ n \\
+  V_f / V_p &= j ^ n \\
+  j ^ n &= V_f / V_p \\
+  n &= \log_{j} (\frac{V_f}{V_p})
+\end{align}
+$$$
+{{< /safe_html >}}
 
-O último passo é transforma a exponenciação (`j ** n`) em um logaritmo e temos a nossa fórmula!
+O último passo é transformar a exponenciação do passo 3 ($j ^ n$) em um logaritmo e no passo 4 temos a nossa fórmula final!
 
-~~~python
+```python
 from math import log
 
 n = log(V_f / V_p, j)
-~~~
+```
 
-Substituindo os valores:
+Substituindo os valores do nosso problema na fórmula:
 
-~~~python
+```python
 from math import log
+
+# V_f (valor futuro) = 30 milhas
+# V_p (valor presente) = 10 milhas
+# j (juros) = 10% a mais ao dia, ou seja, 1.1
 
 n = log(30 / 10, 1.1)
 n = log(3, 1.1)
 n = 11.526704607247604
-~~~
+```
 
-Como vai demorar aproximadamente onze dias e meio para chegarmos às 30 milhas e estamos trabalhando com dias inteiros, arredondamos o valor para 12.
+Como vai demorar aproximadamente onze dias e meio para chegarmos às 30 milhas e estamos trabalhando com dias inteiros, arredondamos o valor para 12, pois só "medimos" nosso resultado uma vez ao dia por isso usamos o 12º dia.
 
 Ué?! Mas a resposta não era pra ser 13 dias?
-Sim! Lembra da linha que eu disse para não esquecer? São 12 dias aperfeiçoando a corrida (ou contando juros) para dar este resultado, porém temos que adicionar o 1º dia, pois ele não tem os "juros" aplicados ainda, ou seja, é nosso valor inicial. Portanto é só adicionar `1` ao nosso cálculo e temos a resposta correta, que é `13`.
+Sim! Lembra da linha que eu disse para não esquecer? São 12 dias aperfeiçoando a corrida (ou contando juros) para dar este resultado, porém temos que adicionar o 1º dia, pois ele não tem os "juros" aplicados ainda, ou seja, nosso cálculo aponta quantos dias precisamos aperfeiçoar nossa corrida e o 1º dia não conta como aperfeiçamento. Portanto é só adicionar `1` ao nosso cálculo e temos a resposta correta, que é `13`.
 
 Então nossa resposta ficou:
 
@@ -245,7 +259,68 @@ n = log(v_p/v_f, 1.1)
 print(ceil(n) + 1)
 ```
 
-Como é o primeiro artigo que escrevo, não sei se ficou muito longo, detalhado e chato, mas como queria guardar esse tipo de experiência, espero que sirva de alguma coisa para outras pessoas também.
+## Performance
+
+Por fim, vamos demonstrar a diferença de performance das duas abordagens. Visto que a abordagem que utiliza `for` é *O(N)*, o tempo para executar o algoritmo deve aumentar linearmente de acordo com a quantidade de _loops_ executadas. Já a segunda abordagem deve ser execudata em tempo constante, pois independente da quantidade de dias que for a resposta, o resultado é calculado diretamente usando o Log.
+
+Para o teste de performance criei este [Repl.it][replit.performance] com o seguinte código:
+
+```python
+from math import ceil, log
+import timeit
+
+
+def calcular_for(dist_inicial, dist_meta, percentual):
+    num_dias = 1
+
+    while dist_inicial < dist_meta:
+        dist_inicial *= percentual
+        num_dias += 1
+    
+    return num_dias
+
+def calcular_log(dist_inicial, dist_meta, percentual):
+    num_dias = log(dist_meta/dist_inicial, percentual)
+    return ceil(num_dias) + 1
+
+
+# Argumentos para os testes no padrão
+# (dist_inicial, dist_meta, percentual)
+testes = [
+    (10, 30, 1.1),           # 10% ao dia, resultado 13
+    (10, 1_000_000, 1.01),   # 1% ao dia, resultado 1159
+    (10, 1_000_000, 1.001),  # 0.1% ao dia, resultado 12_214
+]
+
+for args in testes:
+    # garante que as respostas são as mesmas sempre
+    assert calcular_for(*args) == calcular_log(*args)
+
+    t = timeit.timeit("calcular_for(*args)", number=10_000, globals=globals())
+    print(f"calcular_for{args!r}: {t: >07.4f} s")
+
+    t = timeit.timeit("calcular_log(*args)", number=10_000, globals=globals())
+    print(f"calcular_log{args!r}: {t: >07.4f} s")
+
+```
+
+Os resultados do replit foram:
+
+```txt
+calcular_for(10, 30, 1.1):  0.0335s
+calcular_log(10, 30, 1.1):  0.0046s
+calcular_for(10, 1000000, 1.01):  3.6109s
+calcular_log(10, 1000000, 1.01):  0.0088s
+calcular_for(10, 1000000, 1.001): 41.0780s
+calcular_log(10, 1000000, 1.001):  0.0079s
+```
+
+Estes resultados podem variar de máquina para máquina, mas como vocês podem perceber mesmo para o nosso caso inicial que executa apenas 12 loops a diferença foi de 33.5ms para 4.6ms. E no pior caso do teste que precisaria de 12.214 loops para chegar numa resposta a diferença foi de mais de 40 segundos!!
+
+## Conclusão
+
+Espero que este artigo sirva como um exemplo de como podemos melhorar o desempenho de algoritmos comuns do nosso dia-a-dia aplicando fórmulas ao invés de laços de repetição e também de como analisar a performance do seu código usando o módulo [`timeit`][timeit].
+
 
 
 [CodePen]: https://codepen.io/
@@ -257,7 +332,9 @@ Como é o primeiro artigo que escrevo, não sei se ficou muito longo, detalhado 
 [replit.comunidade]: https://repl.it/community "Cursos disponíveis gratuitamente na plataforma"
 [replit.estudante]: https://repl.it/student "Cursos incritos"
 [replit.curso]: https://repl.it/student/classrooms/17929 "Auto-Graded Course with Solutions"
+[replit.performance]: https://replit.com/@fernandosavio/blog-post-juros-compostos-performance#main.py "Repl.it com os resultados de performance"
 
 [docs.factorial]: https://docs.python.org/3/library/math.html#math.factorial "math.factorial"
-[wiki.juros]: https://pt.wikipedia.org/wiki/Juro#Juros_compostos
+[wiki.juros]: https://pt.wikipedia.org/wiki/Juro#Juros_compostos "Juros compostos (Wiki)"
+[timeit]: https://docs.python.org/3/library/timeit.html "Documentação do módulo 'timeit'"
 

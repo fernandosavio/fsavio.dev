@@ -4,9 +4,7 @@ description = "Experiências relacionadas a programação e ao meu dia-a-dia."
 keywords = ['Blog', "Fernando Sávio", "Programação", "dev"]
 author = 'Fernando Sávio'
 
-images = [
-
-]
+images = []
 DateFormat = '02/01/2006'
 defaultTheme = 'dark'  # dark, light or auto
 disableThemeToggle = false
@@ -98,7 +96,7 @@ SiteVerificationTag = ''
 [cover]
 hidden = true # hide everywhere but not in structured data
 hiddenInList = true # hide on list pages and home
-hiddenInSingle = true # hide on single page
+hiddenInSingle = false # hide on single page
 
 [editPost]
 URL = false

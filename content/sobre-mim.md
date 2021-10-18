@@ -1,5 +1,6 @@
 ---
 type: page
+showToc: false
 ---
 
 ## Sobre mim
