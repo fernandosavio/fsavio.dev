@@ -1,12 +1,12 @@
 ---
-# type: post
-title: "Juro composto aplicado a um exemplo real"
+title: "Otimização de código usando fórmula de juro composto"
 date: 2017-07-02T05:00:00Z
 cover:
     image: "images/digital-marketing.jpg"
     alt: "Imagem de capa de um table com gráficos."
     relative: true
 description: "Resolução de um problema proposto na plataforma repl.it que usa a fórmula de juros compostos ao invés de usar loop."
+summary: "Neste artigo mosto como foi otimizado um algoritmo que usava loop para efetuar um cálculo com performance linear, para um algoritmo com performance constante usando a fórmula do juro composto."
 categorias:
   - programação
 tags:

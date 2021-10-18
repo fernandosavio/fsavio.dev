@@ -1,23 +1,30 @@
 [[main]]
+identifier = 'posts'
+name = 'Posts'
+url = '/posts/'
+weight = 10
+
+[[main]]
 identifier = 'categories'
 name = 'Categorias'
 url = '/categorias/'
-weight = 10
+weight = 20
+
 
 [[main]]
 identifier = 'tags'
 name = 'Tags'
 url = '/tags/'
-weight = 20
+weight = 30
 
 [[main]]
 identifier = 'sobre'
 name = 'Sobre mim'
 url = '/sobre-mim/'
-weight = 30
+weight = 40
 
 [[main]]
 identifier = 'pesquisa'
 name = 'Pesquisa'
 url = '/pesquisa/'
-weight = 40
+weight = 50

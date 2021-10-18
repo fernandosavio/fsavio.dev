@@ -10,7 +10,7 @@
     other: "{{ .Count }} minutos"
 
 - id: toc
-  translation: "Conteúdo"
+  translation: "Índice"
 
 - id: translations
   translation: "Traduções"

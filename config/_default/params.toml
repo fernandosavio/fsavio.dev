@@ -1,6 +1,6 @@
 # env = 'production'  # to enable google analytics, opengraph, twitter-cards and schema.
 title = 'fsavio.dev'
-description = "Experiências relacionadas a programação e ao meu dia-a-dia."
+description = "Experiências relacionadas à programação e ao meu dia-a-dia."
 keywords = ['Blog', "Fernando Sávio", "Programação", "dev"]
 author = 'Fernando Sávio'
 
@@ -15,7 +15,7 @@ ShowShareButtons = true
 ShowPostNavLinks = false
 ShowBreadCrumbs = true
 ShowCodeCopyButtons = false
-disableSpecial1stPost = false
+disableSpecial1stPost = true
 disableScrollToTop = false
 
 comments = false
@@ -42,11 +42,11 @@ iconHeight = 35
 [profileMode]
 enabled = false # needs to be explicitly set
 title = 'fsavio.dev'
-subtitle = "Experiências relacionadas a programação e ao meu dia-a-dia."
+subtitle = "Experiências relacionadas à programação e ao meu dia-a-dia."
 imageUrl = ""
 imageWidth = 120
 imageHeight = 120
-imageTitle = 'my image'
+imageTitle = ''
 buttons = [
     {name = 'Posts', url = 'posts'},
     {name = 'Tags', url = 'tags'},
@@ -54,8 +54,8 @@ buttons = [
 
 # home-info mode
 [homeInfoParams]
-Title = 'FSavio.dev'
-Content = 'Experiências relacionadas a programação e ao meu dia-a-dia.'
+Title = 'fsavio.dev'
+Content = 'Experiências relacionadas à programação e ao meu dia-a-dia.'
 
 [[socialIcons]]
 name = 'stackoverflow'

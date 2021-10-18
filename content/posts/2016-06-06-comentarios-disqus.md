@@ -1,15 +1,15 @@
 ---
-type: post
 author: Fernando Sávio
 date: 2016-06-06T05:00:00Z
 title: "Disqus: usando tags HTML"
 description: "Uma 'documentação' pessoal (cheatsheet) das tags aceitas pelo Disqus."
-categories: 
+categorias: 
   - html
   - disqus
 tags:
   - disqus
   - comentarios
+draft: true
 ---
 
 Tenho visto muita gente "alertando" seus spoilers nos comentários do [Disqus] de vários sites da seguinte maneira:
