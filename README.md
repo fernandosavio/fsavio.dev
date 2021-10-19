@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/8fad91db-5199-4007-ab1d-c49518e7df93/deploy-status)](https://app.netlify.com/sites/fsavio/deploys)
+
 # [fsavio.dev](https://fsavio.dev)
 
 Repositório do meu blog pessoal.
