@@ -18,7 +18,7 @@ ShowCodeCopyButtons = false
 disableSpecial1stPost = true
 disableScrollToTop = false
 
-comments = false
+comments = true
 hidemeta = false
 hideSummary = false
 showtoc = true
