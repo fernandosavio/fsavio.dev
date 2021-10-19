@@ -6,7 +6,7 @@ cover:
     alt: "Imagem de capa de um table com gráficos."
     relative: true
 description: "Resolução de um problema proposto na plataforma repl.it que usa a fórmula de juros compostos ao invés de usar loop."
-summary: "Neste artigo mosto como foi otimizado um algoritmo que usava loop para efetuar um cálculo com performance linear, para um algoritmo com performance constante usando a fórmula do juro composto."
+summary: "Neste artigo mostro como foi otimizado um algoritmo que usava loop para efetuar um cálculo com performance linear, para um algoritmo com performance constante usando a fórmula do juro composto."
 categorias:
   - Programação
 tags:
